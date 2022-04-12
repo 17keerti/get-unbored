@@ -16,6 +16,21 @@ function fetchAndDisplayRandomActivity() {
     });
 }
 
+function fetchAndDisplayRandomJoke() {
+  var jokeUrl = "https://api.chucknorris.io/jokes/random";
+  fetch(jokeUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          displayRandomJoke(data);
+          console.log(data.value);
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    });
+}
 
 var displayRandomActivity = function (activity) {
   if (activity.length === 0) {
@@ -29,10 +44,25 @@ var displayRandomActivity = function (activity) {
 
 }
 
+var displayRandomJoke = function (joke) {
+  if (joke.length === 0) {
+    displaySavedItemEl.textContent = 'No content found.';
+    return;
+  }
+  var newEl = document.createElement('li');
+  newEl.innerHTML=`<p>Joke: ${joke.value} `
+  displaySavedItemEl.appendChild(newEl);
+}
+
 // Sample code for testing multiple items in UI to be updated later.
 
 fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
 fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
 fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
 fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
 fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
