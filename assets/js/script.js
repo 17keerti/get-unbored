@@ -63,3 +63,13 @@ var displayRandomJoke = function (joke) {
 
 fetchAndDisplayRandomActivity();
 fetchAndDisplayRandomJoke();
+
+// Getting button to display content
+var contentBtn = document.getElementById("contentBtn")
+contentBtn.addEventListener("click", getContent)
+var displayedContent= document.getElementById("displaySavedItem")
+
+function getContent() {
+    console.log("Getting Content")
+    displayedContent.classList.remove('hidden')
+}
