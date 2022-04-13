@@ -1,0 +1,18 @@
+#clock {
+  font-size: x-small;
+}
+
+#heart{
+  font-size: medium;
+  float: right;
+}
+
+.liDisplay{
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 20px;
+}
+
+.logo{
+  margin-top: 30px;
+}
