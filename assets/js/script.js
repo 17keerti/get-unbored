@@ -4,26 +4,62 @@
     //  tabs for memes and jokes
     // saved memes/jokes on the left hand side
 
-    var apiUrl ="http://www.boredapi.com/api/activity?accessibility=1";
-    fetch(apiUrl)
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (data) {
-            console.log(data);
-          });
-        } else {
-          alert("Error: " + response.statusText);
-        }
-      });
 
-      var jokeUrl ="https://api.imgflip.com/get_memes";
-      fetch(jokeUrl)
-        .then(function (response) {
-          if (response.ok) {
-            response.json().then(function (data) {
-              console.log(data);
-            });
-          } else {
-            alert("Error: " + response.statusText);
-          }
+var displaySavedItemEl = document.querySelector("#displaySavedItem");
+
+
+function fetchAndDisplayRandomActivity() {
+  var activityUrl = "http://www.boredapi.com/api/activity?accessibility=1";
+  fetch(activityUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          displayRandomActivity(data);
         });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    });
+}
+
+function fetchAndDisplayRandomJoke() {
+  var jokeUrl = "https://api.chucknorris.io/jokes/random";
+  fetch(jokeUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          console.log(data);
+          displayRandomJoke(data);
+          console.log(data.value);
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    });
+}
+
+var displayRandomActivity = function (activity) {
+  if (activity.length === 0) {
+    displaySavedItemEl.textContent = 'No content found.';
+    return;
+  }
+
+  var newEl = document.createElement('li');
+  newEl.innerHTML = `<p> Activity: ${activity.activity} </p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+  displaySavedItemEl.appendChild(newEl);
+
+}
+
+var displayRandomJoke = function (joke) {
+  if (joke.length === 0) {
+    displaySavedItemEl.textContent = 'No content found.';
+    return;
+  }
+  var newEl = document.createElement('li');
+  newEl.innerHTML=`<p>Joke: ${joke.value} `
+  displaySavedItemEl.appendChild(newEl);
+}
+
+fetchAndDisplayRandomActivity();
+fetchAndDisplayRandomJoke();
