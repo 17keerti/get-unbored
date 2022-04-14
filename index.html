@@ -27,121 +27,106 @@
             </ul>
         </div>
         <div class="nav-content">
-            <ul class="tabs tabs-transparent">
-                <a id= "jokeTab" class="waves-effect waves-light btn">Joke</a>
-                <a id= "activityTab" class="waves-effect waves-light btn">Activity</a>
-            </ul>
+            <ul class="tabs tabs-transparent"></ul>
         </div>
     </nav>
-
-    <div class="container teal lighten-4 main">
-        <form action="#">
-            <h6>Please Select the Type of Activity:</h6>
+    <div class="row">
+        <div class="card teal lighten-4 col s2">
             <p>
-                <span class="mdc-evolution-chip-set" role="grid">
-                    <span class="mdc-evolution-chip-set__chips" role="presentation">
-                        <span class="mdc-evolution-chip" role="row" id="c0">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="0">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Education</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Social</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">DIY</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Charity</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Cooking</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Music</span>
-                                </button>
-                            </span>
-                        </span>
-                        <span class="mdc-evolution-chip" role="row" id="c1">
-                            <span class="mdc-evolution-chip__cell mdc-evolution-chip__cell--primary" role="gridcell">
-                                <button class="mdc-evolution-chip__action mdc-evolution-chip__action--primary"
-                                    type="button" tabindex="-1">
-                                    <span class="mdc-evolution-chip__ripple mdc-evolution-chip__ripple--primary"></span>
-                                    <span class="mdc-evolution-chip__text-label">Relaxation</span>
-                                </button>
-                                <a class='dropdown-trigger btn participants' href='#' data-target='dropdown1'>Participants:</a>
-                                <ul id='dropdown1' class='dropdown-content'>
-                                    <li><a href="#!">1</a></li>
-                                    <li><a href="#!">2</a></li>
-                                    <li><a href="#!">3</a></li>
-                                    <li><a href="#!">4</a></li>
-                                    <li><a href="#!">5</a></li>
-                                    <li><a href="#!">6</a></li>
-                                </ul>
-                            </span>
-                        </span>
-                    </span>
-                </span>
+                <label>
+                    <input type="checkbox" id="joke"/>
+                    <span>Joke</span>
+                </label>
             </p>
-        </form>
-
-    </div>
-    <div class="container teal lighten-4">
-        <div class="card teal lighten-4">
-            <div class="card-content white-text">
-                <span class="card-title">Your Joke/Activity:</span>
-                <p id="displaySavedItem" class="hidden"></p>
+            <p>
+                <label>
+                    <input type="checkbox" id="activity" />
+                    <span>Activity</span>
+                </label>
+            </p>
             </div>
-            <div class="card-action">
-<<<<<<< HEAD
-                <a id="contentBtn" class="waves-effect waves-light btn">Next</a>
-=======
-                <a id= "contentBtn" class="waves-effect waves-light btn">Click Here to Get Unbored</a>
->>>>>>> ef815bc3b69d4b80aa5242354a81456f175e501d
+
+
+            <div class="container teal lighten-4 s5 ">
+                <form action="#">
+                    <h6>Please Select the Type of Activity:</h6>
+                    <p>
+                        <label>
+                            <input type="checkbox" id ="educational" />
+                            <span>Educational</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="recreational"/>
+                            <span>Recreational</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="social" />
+                            <span>Social</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="diy"/>
+                            <span>DIY</span>
+                        </label>
+                    
+                    
+                        <label>
+                            <input type="checkbox" id="charity" />
+                            <span>Charity</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="cooking" />
+                            <span>Cooking</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="relaxation"/>
+                            <span>Relaxation</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="music"/>
+                            <span>Music</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="busywork"/>
+                            <span>Busywork</span>
+                        </label>
+                    </p>
+                    <div class="card teal lighten-4">
+                        <span class="input-field participants">
+                            <select>
+                                <option value="" disabled selected>Participants</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </span>
+                    </div>
+
+                </form>
 
             </div>
         </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit.min.js"></script>
+<div class ="row">
+            <div class="container teal lighten-4">
+                <div class="card teal lighten-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">Your Joke/Activity:</span>
+                        <p id="displaySavedItem" class="hidden"></p>
+                    </div>
+                    <div class="card-action">
+                        <a id="contentBtn" class="waves-effect waves-light btn">Click Here to Get Unbored</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit-icons.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script data-require="angularjs@1.5.8" data-semver="1.5.8"
-        src="https://unpkg.com/angular@1.5.8/angular.min.js"></script>
-    <script src="https://unpkg.com/material-components-web@0.1.1/dist/material-components-web.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script data-require="angularjs@1.5.8" data-semver="1.5.8"
+                src="https://unpkg.com/angular@1.5.8/angular.min.js"></script>
+            <script src="https://unpkg.com/material-components-web@0.1.1/dist/material-components-web.min.js"></script>
+            <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

@@ -3,9 +3,29 @@
 //page 1 joke: 
     //  tabs for memes and jokes
     // saved memes/jokes on the left hand side
-    $('.dropdown-trigger').dropdown();
+    $(document).ready(function(){
+      $('select').formSelect();
+    });
 
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
+
+function getUserPreferences() {
+  var userPreference ={};
+  userPreference.joke = document.getElementById("joke").checked ;
+  userPreference.activity = document.getElementById("activity").checked ;
+  userPreference.education = document.getElementById("educational").checked ;
+  userPreference.recreational =document.getElementById("recreational").checked ;
+  userPreference.social =document.getElementById("social").checked ;
+  userPreference.diy =document.getElementById("diy").checked ;
+  userPreference.charity =document.getElementById("charity").checked ;
+  userPreference.cooking =document.getElementById("cooking").checked ;
+  userPreference.relaxation =document.getElementById("relaxation").checked ;
+  userPreference.music =document.getElementById("music").checked ;
+  userPreference.busywork =document.getElementById("busywork").checked ;
+
+  console.log(userPreference);
+}
+
 
 
 function fetchAndDisplayRandomActivity() {
@@ -69,14 +89,14 @@ contentBtn.addEventListener("click", getContent)
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getContent() {
+  getUserPreferences();
     console.log("Getting Content")
     displayedContent.classList.remove('hidden')
     fetchAndDisplayRandomActivity(); 
     fetchAndDisplayRandomJoke();
 }
 
-var jokeTab = document.getElementById("jokeTab")
-jokeTab.addEventListener("click", getJokeContent)
+
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getJokeContent() {
@@ -85,8 +105,7 @@ function getJokeContent() {
     fetchAndDisplayRandomJoke();
 }
 
-var activityTab = document.getElementById("activityTab")
-activityTab.addEventListener("click", getActivityContent)
+
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getActivityContent() {
