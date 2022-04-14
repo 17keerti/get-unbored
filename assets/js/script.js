@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
+
 var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
 var contentBtn = document.getElementById("contentBtn");
@@ -83,7 +84,7 @@ function getUserPreferences() {
 //   pass allActivityTypes..index.length
 
 function fetchAndDisplayRandomActivity() {
-  var activityUrl = "http://www.boredapi.com/api/activity?accessibility=1";
+  var activityUrl = "https://www.boredapi.com/api/activity ";
   fetch(activityUrl)
     .then(function (response) {
       if (response.ok) {
