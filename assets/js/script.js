@@ -3,7 +3,7 @@
 //page 1 joke: 
     //  tabs for memes and jokes
     // saved memes/jokes on the left hand side
-
+    $('.dropdown-trigger').dropdown();
 
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
 
