@@ -84,19 +84,20 @@ var displayRandomJoke = function (joke) {
 
 
 // Getting button to display content
+
 var contentBtn = document.getElementById("contentBtn")
 contentBtn.addEventListener("click", getContent)
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getContent() {
-  getUserPreferences();
     console.log("Getting Content")
     displayedContent.classList.remove('hidden')
     fetchAndDisplayRandomActivity(); 
     fetchAndDisplayRandomJoke();
 }
 
-
+var jokeTab = document.getElementById("jokeTab")
+jokeTab.addEventListener("click", getJokeContent)
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getJokeContent() {
@@ -105,7 +106,8 @@ function getJokeContent() {
     fetchAndDisplayRandomJoke();
 }
 
-
+var activityTab = document.getElementById("activityTab")
+activityTab.addEventListener("click", getActivityContent)
 var displayedContent= document.getElementById("displaySavedItem")
 
 function getActivityContent() {
@@ -114,6 +116,8 @@ function getActivityContent() {
     fetchAndDisplayRandomActivity();
 
 }
+
+
 
 
 // var store = {
