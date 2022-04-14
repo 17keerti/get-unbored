@@ -45,7 +45,7 @@ var displayRandomActivity = function (activity) {
     return;
   }
 
-  var newEl = document.createElement('li');
+  var newEl = document.createElement('p');
   newEl.innerHTML = `<p> Activity: ${activity.activity} </p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
   displaySavedItemEl.appendChild(newEl);
 
@@ -56,13 +56,12 @@ var displayRandomJoke = function (joke) {
     displaySavedItemEl.textContent = 'No content found.';
     return;
   }
-  var newEl = document.createElement('li');
+  var newEl = document.createElement('p');
   newEl.innerHTML=`<p>Joke: ${joke.value} `
   displaySavedItemEl.appendChild(newEl);
 }
 
-fetchAndDisplayRandomActivity();
-fetchAndDisplayRandomJoke();
+
 
 // Getting button to display content
 var contentBtn = document.getElementById("contentBtn")
@@ -72,4 +71,47 @@ var displayedContent= document.getElementById("displaySavedItem")
 function getContent() {
     console.log("Getting Content")
     displayedContent.classList.remove('hidden')
+    fetchAndDisplayRandomActivity(); 
+    fetchAndDisplayRandomJoke();
 }
+
+var jokeTab = document.getElementById("jokeTab")
+jokeTab.addEventListener("click", getJokeContent)
+var displayedContent= document.getElementById("displaySavedItem")
+
+function getJokeContent() {
+    console.log("Getting Joke Content")
+    displayedContent.classList.remove('hidden')
+    fetchAndDisplayRandomJoke();
+}
+
+var activityTab = document.getElementById("activityTab")
+activityTab.addEventListener("click", getActivityContent)
+var displayedContent= document.getElementById("displaySavedItem")
+
+function getActivityContent() {
+    console.log("Getting Activity Content")
+    displayedContent.classList.remove('hidden')
+    fetchAndDisplayRandomActivity();
+
+}
+
+
+// var store = {
+
+// }
+// let randomNum = <math.random function random {
+
+// }>;
+
+// if (randomNum = 1) {
+//   fetchAndDisplayRandomActivity();
+// } else {
+//   fetchAndDisplayRandomJoke
+// };
+
+// function random (store) {
+//     var index = Math.floor(Math.random()*store.length);
+//     var randomize = store[index];
+//     return randomize;
+
