@@ -3,28 +3,45 @@
 //page 1 joke: 
     //  tabs for memes and jokes
     // saved memes/jokes on the left hand side
+
+
+    
     $(document).ready(function(){
-      $('select').formSelect();
-    });
+        $('select').formSelect();
+      });
+  
+  var displaySavedItemEl = document.querySelector("#displaySavedItem");
+  
+  function getUserPreferences() {
+    var userPreference ={};
+    userPreference.education = document.getElementById("educational").checked ;
+    userPreference.recreational =document.getElementById("recreational").checked ;
+    userPreference.social =document.getElementById("social").checked ;
+    userPreference.diy =document.getElementById("diy").checked ;
+    userPreference.charity =document.getElementById("charity").checked ;
+    userPreference.cooking =document.getElementById("cooking").checked ;
+    userPreference.relaxation =document.getElementById("relaxation").checked ;
+    userPreference.music =document.getElementById("music").checked ;
+    userPreference.busywork =document.getElementById("busywork").checked ;
+  
+    console.log(userPreference);
+  }
+//     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+//     // convert this allActivityTypes var to only contain values user has selected
+//     // put random value from allActivityTypes to selectedActivity
+//     var selectedActivity = "recreational"
+//     var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
+//     // now fetch the url and show the result
+//     // if a check box equals true then we want it show
+// return
+//   }
+//   function getRandomInt(allActivityTypes.length) {
+//     return Math.floor(Math.random() * max);
+//   }
+//   pass allActivityTypes..index.length
 
-var displaySavedItemEl = document.querySelector("#displaySavedItem");
 
-function getUserPreferences() {
-  var userPreference ={};
-  userPreference.joke = document.getElementById("joke").checked ;
-  userPreference.activity = document.getElementById("activity").checked ;
-  userPreference.education = document.getElementById("educational").checked ;
-  userPreference.recreational =document.getElementById("recreational").checked ;
-  userPreference.social =document.getElementById("social").checked ;
-  userPreference.diy =document.getElementById("diy").checked ;
-  userPreference.charity =document.getElementById("charity").checked ;
-  userPreference.cooking =document.getElementById("cooking").checked ;
-  userPreference.relaxation =document.getElementById("relaxation").checked ;
-  userPreference.music =document.getElementById("music").checked ;
-  userPreference.busywork =document.getElementById("busywork").checked ;
 
-  console.log(userPreference);
-}
 
 
 
@@ -84,38 +101,36 @@ var displayRandomJoke = function (joke) {
 
 
 // Getting button to display content
+
 var contentBtn = document.getElementById("contentBtn")
 contentBtn.addEventListener("click", getContent)
-var displayedContent= document.getElementById("displaySavedItem")
-
 function getContent() {
-  getUserPreferences();
     console.log("Getting Content")
-    displayedContent.classList.remove('hidden')
-    fetchAndDisplayRandomActivity(); 
+    displaySavedItemEl.classList.remove('hidden')
+    fetchAndDisplayRandomActivity()
     fetchAndDisplayRandomJoke();
+    getUserPreferences();
 }
 
-
-var displayedContent= document.getElementById("displaySavedItem")
-
+var jokeTab = document.getElementById("jokeTab")
+jokeTab.addEventListener("click", getJokeContent)
 function getJokeContent() {
     console.log("Getting Joke Content")
-    displayedContent.classList.remove('hidden')
+    displaySavedItemEl.classList.remove('hidden')
     fetchAndDisplayRandomJoke();
 }
 
-
-var displayedContent= document.getElementById("displaySavedItem")
-
+var activityTab = document.getElementById("activityTab")
+activityTab.addEventListener("click", getActivityContent)
 function getActivityContent() {
     console.log("Getting Activity Content")
-    displayedContent.classList.remove('hidden')
+    displaySavedItemEl.classList.remove('hidden')
     fetchAndDisplayRandomActivity();
 
 }
 
 
+<<<<<<< HEAD
 // assuming displayedItem = {
 //   joke_data: full joke API response
 //   activity_data: full activity API response
@@ -145,6 +160,8 @@ localStorage.setItem("userScores", JSON.stringify(previousSavedItem));
 
 
 
+=======
+>>>>>>> 01fcd869dd59bc51d0361ef669f5f504fa4f83fc
 
 
 // var store = {
