@@ -3,28 +3,32 @@
 //page 1 joke: 
     //  tabs for memes and jokes
     // saved memes/jokes on the left hand side
+
+
+    
     $(document).ready(function(){
-      $('select').formSelect();
-    });
+        $('select').formSelect();
+      });
+  
+  var displaySavedItemEl = document.querySelector("#displaySavedItem");
+  
+  function getUserPreferences() {
+    var userPreference ={};
+    userPreference.education = document.getElementById("educational").checked ;
+    userPreference.recreational =document.getElementById("recreational").checked ;
+    userPreference.social =document.getElementById("social").checked ;
+    userPreference.diy =document.getElementById("diy").checked ;
+    userPreference.charity =document.getElementById("charity").checked ;
+    userPreference.cooking =document.getElementById("cooking").checked ;
+    userPreference.relaxation =document.getElementById("relaxation").checked ;
+    userPreference.music =document.getElementById("music").checked ;
+    userPreference.busywork =document.getElementById("busywork").checked ;
+  
+    console.log(userPreference);
+    return
+  }
 
-var displaySavedItemEl = document.querySelector("#displaySavedItem");
-
-function getUserPreferences() {
-  var userPreference ={};
-  userPreference.joke = document.getElementById("joke").checked ;
-  userPreference.activity = document.getElementById("activity").checked ;
-  userPreference.education = document.getElementById("educational").checked ;
-  userPreference.recreational =document.getElementById("recreational").checked ;
-  userPreference.social =document.getElementById("social").checked ;
-  userPreference.diy =document.getElementById("diy").checked ;
-  userPreference.charity =document.getElementById("charity").checked ;
-  userPreference.cooking =document.getElementById("cooking").checked ;
-  userPreference.relaxation =document.getElementById("relaxation").checked ;
-  userPreference.music =document.getElementById("music").checked ;
-  userPreference.busywork =document.getElementById("busywork").checked ;
-
-  console.log(userPreference);
-}
+  
 
 
 
@@ -87,35 +91,30 @@ var displayRandomJoke = function (joke) {
 
 var contentBtn = document.getElementById("contentBtn")
 contentBtn.addEventListener("click", getContent)
-var displayedContent= document.getElementById("displaySavedItem")
-
 function getContent() {
     console.log("Getting Content")
-    displayedContent.classList.remove('hidden')
+    displaySavedItemEl.classList.remove('hidden')
     fetchAndDisplayRandomActivity(); 
     fetchAndDisplayRandomJoke();
+    getUserPreferences();
 }
 
-var jokeTab = document.getElementById("jokeTab")
-jokeTab.addEventListener("click", getJokeContent)
-var displayedContent= document.getElementById("displaySavedItem")
+// var jokeTab = document.getElementById("jokeTab")
+// jokeTab.addEventListener("click", getJokeContent)
+// function getJokeContent() {
+//     console.log("Getting Joke Content")
+//     displaySavedItemEl.classList.remove('hidden')
+//     fetchAndDisplayRandomJoke();
+// }
 
-function getJokeContent() {
-    console.log("Getting Joke Content")
-    displayedContent.classList.remove('hidden')
-    fetchAndDisplayRandomJoke();
-}
+// var activityTab = document.getElementById("activityTab")
+// activityTab.addEventListener("click", getActivityContent)
+// function getActivityContent() {
+//     console.log("Getting Activity Content")
+//     displaySavedItemEl.classList.remove('hidden')
+//     fetchAndDisplayRandomActivity();
 
-var activityTab = document.getElementById("activityTab")
-activityTab.addEventListener("click", getActivityContent)
-var displayedContent= document.getElementById("displaySavedItem")
-
-function getActivityContent() {
-    console.log("Getting Activity Content")
-    displayedContent.classList.remove('hidden')
-    fetchAndDisplayRandomActivity();
-
-}
+// }
 
 
 
