@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
+
 var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
 var contentBtn = document.getElementById("contentBtn");
@@ -23,23 +24,29 @@ function getUserPreferences() {
   userPreference.busywork = document.getElementById("busywork").checked;
 
   console.log(userPreference);
+
 }
-//     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
-//     // convert this allActivityTypes var to only contain values user has selected
-//     // put random value from allActivityTypes to selectedActivity
-//     var selectedActivity = "recreational"
-//     var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
-//     // now fetch the url and show the result
-//     // if a check box equals true then we want it show
-// return
-//   }
-//   function getRandomInt(allActivityTypes.length) {
-//     return Math.floor(Math.random() * max);
-//   }
-//   pass allActivityTypes..index.length
+
+  //   var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+  //   // convert this allActivityTypes var to only contain values user has selected
+  //   // put random value from allActivityTypes to selectedActivity
+   
+  //   var index = getRandomInt(allActivityTypes.length);
+  //   var selectedActivity = allActivityTypes[index];
+  //   console.log(selectedActivity);
+  //   var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
+  
+  // // now fetch the url and show the result
+  //   // if a check box equals true then we want it show
+
+  
+  // function getRandomInt(max) {
+  //   return Math.floor(Math.random() * max);
+  // }
+
 
 function fetchAndDisplayRandomActivity() {
-  var activityUrl = "http://www.boredapi.com/api/activity?accessibility=1";
+  var activityUrl = "https://www.boredapi.com/api/activity ";
   fetch(activityUrl)
     .then(function (response) {
       if (response.ok) {
