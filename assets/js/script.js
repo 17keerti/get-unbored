@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
-
+var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
 var contentBtn = document.getElementById("contentBtn");
 var jokeTab = document.getElementById("jokeTab");
@@ -44,7 +44,7 @@ function fetchAndDisplayRandomActivity() {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           displayRandomActivity(data);
         });
       } else {
@@ -59,7 +59,7 @@ function fetchAndDisplayRandomJoke() {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          console.log(data);
+          // console.log(data);
           displayRandomJoke(data);
         });
       } else {
@@ -78,13 +78,14 @@ var displayRandomActivity = function (activity) {
 
   currentlyDisplayedItem = {};
   currentlyDisplayedItem.activityData = activity;
-
-  console.log(currentlyDisplayedItem);
+  currentlyDisplayedItem.timeData = time;
+  // console.log(currentlyDisplayedItem);
 
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}<br><span id=\"clock\"> ${time}</span> `;
   displaySavedItemEl.appendChild(newEl);
+
 
 }
 
@@ -97,11 +98,13 @@ var displayRandomJoke = function (joke) {
   $(heart).hide();
   currentlyDisplayedItem = {};
   currentlyDisplayedItem.jokeData = joke.value;
-  console.log(currentlyDisplayedItem);
+  currentlyDisplayedItem.timeData = time;
+
+  // console.log(currentlyDisplayedItem);
 
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p>Joke: ${joke.value} `
+  newEl.innerHTML = `<p>Joke: ${joke.value} <br><span id=\"clock\"> ${time}</span>`
   displaySavedItemEl.appendChild(newEl);
 }
 
