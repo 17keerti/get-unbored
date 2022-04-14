@@ -25,10 +25,23 @@
     userPreference.busywork =document.getElementById("busywork").checked ;
   
     console.log(userPreference);
-    return
   }
+//     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
+//     // convert this allActivityTypes var to only contain values user has selected
+//     // put random value from allActivityTypes to selectedActivity
+//     var selectedActivity = "recreational"
+//     var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
+//     // now fetch the url and show the result
+//     // if a check box equals true then we want it show
+// return
+//   }
+//   function getRandomInt(allActivityTypes.length) {
+//     return Math.floor(Math.random() * max);
+//   }
+//   pass allActivityTypes..index.length
 
-  
+
+
 
 
 
@@ -94,27 +107,27 @@ contentBtn.addEventListener("click", getContent)
 function getContent() {
     console.log("Getting Content")
     displaySavedItemEl.classList.remove('hidden')
-    fetchAndDisplayRandomActivity(); 
+    fetchAndDisplayRandomActivity()
     fetchAndDisplayRandomJoke();
     getUserPreferences();
 }
 
-// var jokeTab = document.getElementById("jokeTab")
-// jokeTab.addEventListener("click", getJokeContent)
-// function getJokeContent() {
-//     console.log("Getting Joke Content")
-//     displaySavedItemEl.classList.remove('hidden')
-//     fetchAndDisplayRandomJoke();
-// }
+var jokeTab = document.getElementById("jokeTab")
+jokeTab.addEventListener("click", getJokeContent)
+function getJokeContent() {
+    console.log("Getting Joke Content")
+    displaySavedItemEl.classList.remove('hidden')
+    fetchAndDisplayRandomJoke();
+}
 
-// var activityTab = document.getElementById("activityTab")
-// activityTab.addEventListener("click", getActivityContent)
-// function getActivityContent() {
-//     console.log("Getting Activity Content")
-//     displaySavedItemEl.classList.remove('hidden')
-//     fetchAndDisplayRandomActivity();
+var activityTab = document.getElementById("activityTab")
+activityTab.addEventListener("click", getActivityContent)
+function getActivityContent() {
+    console.log("Getting Activity Content")
+    displaySavedItemEl.classList.remove('hidden')
+    fetchAndDisplayRandomActivity();
 
-// }
+}
 
 
 
