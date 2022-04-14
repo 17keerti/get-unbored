@@ -116,6 +116,37 @@ function getActivityContent() {
 }
 
 
+// assuming displayedItem = {
+//   joke_data: full joke API response
+//   activity_data: full activity API response
+// }
+function likeButtonHandler(displayedItem) {
+var heartOutline = document.getElementById("heartOutline");
+$(heartOutline).is(':visible');
+var isLikeAction = true;
+console.log("isLikedAction: " +isLikeAction);
+  // when user selects the heart
+  if (isLikeAction) {
+  var previousSavedItem = JSON.parse(localStorage.getItem("displayedItem"));
+    if (previousSavedItem == null) {
+      previousSavedItem = [];
+    }
+    previousSavedItem.push(displayedItem);
+    localStorage.setItem("userScores", JSON.stringify(previousSavedItem));
+}
+} else {
+// when user unselects the heart
+// find the index of the displayedIndex in the previousSavedItem[] and delete that item and save the updated array.
+var findDislikedItem = previousSavedItem.findIndex( Element => Element == displayedItem );
+previousSavedItem.splice(findDislikedItem);
+localStorage.setItem("userScores", JSON.stringify(previousSavedItem));
+
+}
+
+
+
+
+
 // var store = {
 
 // }
@@ -133,4 +164,8 @@ function getActivityContent() {
 //     var index = Math.floor(Math.random()*store.length);
 //     var randomize = store[index];
 //     return randomize;
+
+
+
+
 
