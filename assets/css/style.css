@@ -2,7 +2,7 @@
   font-size: x-small;
 }
 
-#heart{
+#heart, #heartOutline{
   font-size: medium;
   float: right;
 }

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/css/uikit.min.css" /> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
@@ -16,7 +15,6 @@
 </head>
 
 <body>
-
         <nav class="nav-extended">
             <div class="nav-wrapper">
                 <h1 class="brand-logo center">Get Unbored with some fun activities and Jokes!</h1>
@@ -35,7 +33,7 @@
         </nav>
 
 
-            <div class="container teal lighten-4 s5 ">
+            <div class="container teal lighten-4">
                 <form action="#">
                     <h6>Please Select the Type of Activity:</h6>
                     <p id="checkboxes">
@@ -88,33 +86,27 @@
                             </select>
                         </span>
                     </div>
-
                 </form>
-
             </div>
         </div>
-<div class ="row">
             <div class="container teal lighten-4">
                 <div class="card teal lighten-4">
-                    <div class="card-content white-text">
+                    <div class="card-content">
                         <span class="card-title">Your Joke/Activity:</span>
                         <p id="displaySavedItem" class="hidden"></p>
+                        <div id="heartOutline" class="material-icons">favorite_border</div> 
+                        <div id="heart" class="material-icons">favorite</div>
                     </div>
                     <div class="card-action">
                         <a id="contentBtn" class="waves-effect waves-light btn">Click Here to Get Unbored</a>
-
                     </div>
                 </div>
             </div>
-        </div>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.13.7/dist/js/uikit-icons.min.js"></script> -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             <script data-require="angularjs@1.5.8" data-semver="1.5.8"
                 src="https://unpkg.com/angular@1.5.8/angular.min.js"></script>
             <script src="https://unpkg.com/material-components-web@0.1.1/dist/material-components-web.min.js"></script>
             <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
