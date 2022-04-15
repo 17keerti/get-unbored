@@ -150,12 +150,9 @@ function getContent() {
   console.log(index);
   if(index == 1){
   fetchAndDisplayRandomActivity();
-<<<<<<< HEAD
-=======
   } else {
   fetchAndDisplayRandomJoke();
   }
->>>>>>> 95efa18905f957966f3422137ec98a50f5994389
   getUserPreferences();
 }
 
