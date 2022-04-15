@@ -1,9 +1,9 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
-$(document).ready(function(){
-    $('.slider').slider();
-  });
+$(document).ready(function () {
+  $('.slider').slider();
+});
 
 var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
@@ -26,48 +26,78 @@ function getUserPreferences() {
   userPreference.relaxation = document.getElementById("relaxation").checked;
   userPreference.music = document.getElementById("music").checked;
   userPreference.busywork = document.getElementById("busywork").checked;
-
-  console.log(userPreference);
-  return userPreference
+  return userPreference;
 }
-for (const property in userPreference) {
-    console.log(`${property}: ${userPreference[property]}`);
-  }
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+
+function checkboxHandler() {
+  var userPreference = getUserPreferences();
+  console.log(userPreference);
+  var checkIfFalse = Object.values(userPreference).every(
+    value => value === false
+  ); 
+  if(checkIfFalse == true){
+    var index = getRandomInt(2);
+    if (index == 1) {
+      fetchAndDisplayRandomActivity();
+    } else {
+      fetchAndDisplayRandomJoke();
+    }
+  } else {
   
-//   for (const [key, value] of Object.entries(userPreference)) {
-//     console.log(`${key}: ${value}`);
-//   }
-// function random(userPreference) {
-//     var index = Math.floor(Math.random()*userPreference.length);
-//     var randomize = userPreference[index];
-// return randomize
-// }
-// function contentPreference {
-//     var choices = fetchAndDisplayRandomActivity();
+    var activityPreferences = [];
+    if (userPreference.education) {
+      activityPreferences.push("education");
+    } else if (userPreference.recreational) {
+      activityPreferences.push("recreational");
+    } else if (userPreference.social) {
+      activityPreferences.push("social");
+    } else if (userPreference.diy) {
+      activityPreferences.push("diy");
+    } else if (userPreference.charity) {
+      activityPreferences.push("charity");
+    } else if (userPreference.cooking) {
+      activityPreferences.push("cooking");
+    } else if (userPreference.relaxation) {
+      activityPreferences.push("relaxation");
+    } else if (userPreference.busywork) {
+      activityPreferences.push("busywork");
+    } else if (userPreference.music) {
+      activityPreferences.push("music");
+    }
+    
+  var selectedActivityType = activityPreferences[getRandomInt(activityPreferences.length)];
+  console.log(selectedActivityType);
+  var urlWithActivityType = "http://www.boredapi.com/api/activity?type=" + selectedActivityType;
 
-//     var final = []
-//     var possibleSet = []
-//     let baseUrl = "https://www.boredapi.com/api/activity?type=";
-//     let url = "";
-//     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
+  fetch(urlWithActivityType)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (activity) {
+          console.log(activity);
+          if (activity.link == "") {
+            var newEl = document.createElement('p');
+            $(displaySavedItemEl).empty();
+            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
+            displaySavedItemEl.appendChild(newEl);
+          } else {
+            var newEl = document.createElement('p');
+            $(displaySavedItemEl).empty();
+            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+            displaySavedItemEl.appendChild(newEl);
+          }
 
-  
-  function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    });
   }
-
-// convert this allActivityTypes var to only contain values user has selected
-// put random value from allActivityTypes to selectedActivity
-// var selectedActivity = "recreational"
-// var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
-// now fetch the url and show the result
-// if a check box equals true then we want it show
-
-//   function getRandomInt(max) {
-//     return Math.floor(Math.random() * max);
-//   }
-
-//   pass allActivityTypes..index.length
+}
 
 function fetchAndDisplayRandomActivity() {
   var activityUrl = "https://www.boredapi.com/api/activity ";
@@ -111,17 +141,17 @@ var displayRandomActivity = function (activity) {
   currentlyDisplayedItem.activityData = activity;
   currentlyDisplayedItem.timeData = time;
   // console.log(currentlyDisplayedItem);
-  if(activity.link == "" ){
-  var newEl = document.createElement('p');
-  $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
-  displaySavedItemEl.appendChild(newEl);
+  if (activity.link == "") {
+    var newEl = document.createElement('p');
+    $(displaySavedItemEl).empty();
+    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
+    displaySavedItemEl.appendChild(newEl);
   } else {
-  var newEl = document.createElement('p');
-  $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
-  displaySavedItemEl.appendChild(newEl);
-}
+    var newEl = document.createElement('p');
+    $(displaySavedItemEl).empty();
+    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+    displaySavedItemEl.appendChild(newEl);
+  }
 
 }
 
@@ -146,14 +176,7 @@ var displayRandomJoke = function (joke) {
 
 function getContent() {
   displaySavedItemEl.classList.remove('hidden');
-  var index = getRandomInt(2);
-  console.log(index);
-  if(index == 1){
-  fetchAndDisplayRandomActivity();
-  } else {
-  fetchAndDisplayRandomJoke();
-  }
-  getUserPreferences();
+  checkboxHandler();
 }
 
 
