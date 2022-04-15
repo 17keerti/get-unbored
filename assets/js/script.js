@@ -30,6 +30,13 @@ function getUserPreferences() {
   console.log(userPreference);
   return userPreference
 }
+for (const property in userPreference) {
+    console.log(`${property}: ${userPreference[property]}`);
+  }
+  
+//   for (const [key, value] of Object.entries(userPreference)) {
+//     console.log(`${key}: ${value}`);
+//   }
 // function random(userPreference) {
 //     var index = Math.floor(Math.random()*userPreference.length);
 //     var randomize = userPreference[index];
