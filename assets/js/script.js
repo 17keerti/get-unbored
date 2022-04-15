@@ -13,6 +13,7 @@ var activityTab = document.getElementById("activityTab");
 var filledHeart = document.getElementById("heart");
 var heartOutline = document.getElementById("heartOutline");
 var currentlyDisplayedItem;
+var userPreference;
 
 function getUserPreferences() {
   var userPreference = {};
@@ -27,26 +28,39 @@ function getUserPreferences() {
   userPreference.busywork = document.getElementById("busywork").checked;
 
   console.log(userPreference);
-
+  return userPreference
 }
+// function random(userPreference) {
+//     var index = Math.floor(Math.random()*userPreference.length);
+//     var randomize = userPreference[index];
+// return randomize
+// }
+// function contentPreference {
+//     var choices = fetchAndDisplayRandomActivity();
 
-  //   var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"]
-  //   // convert this allActivityTypes var to only contain values user has selected
-  //   // put random value from allActivityTypes to selectedActivity
-   
-  //   var index = getRandomInt(allActivityTypes.length);
-  //   var selectedActivity = allActivityTypes[index];
-  //   console.log(selectedActivity);
-  //   var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
-  
-  // // now fetch the url and show the result
-  //   // if a check box equals true then we want it show
+//     var final = []
+//     var possibleSet = []
+//     let baseUrl = "https://www.boredapi.com/api/activity?type=";
+//     let url = "";
+//     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
 
   
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
+// convert this allActivityTypes var to only contain values user has selected
+// put random value from allActivityTypes to selectedActivity
+// var selectedActivity = "recreational"
+// var url = "http://www.boredapi.com/api/activity?type=" + selectedActivity ;
+// now fetch the url and show the result
+// if a check box equals true then we want it show
+
+//   function getRandomInt(max) {
+//     return Math.floor(Math.random() * max);
+//   }
+
+//   pass allActivityTypes..index.length
 
 function fetchAndDisplayRandomActivity() {
   var activityUrl = "https://www.boredapi.com/api/activity ";
