@@ -52,21 +52,21 @@ function checkboxHandler() {
     var activityPreferences = [];
     if (userPreference.education) {
       activityPreferences.push("education");
-    } else if (userPreference.recreational) {
+    } if (userPreference.recreational) {
       activityPreferences.push("recreational");
-    } else if (userPreference.social) {
+    } if (userPreference.social) {
       activityPreferences.push("social");
-    } else if (userPreference.diy) {
+    } if (userPreference.diy) {
       activityPreferences.push("diy");
-    } else if (userPreference.charity) {
+    } if (userPreference.charity) {
       activityPreferences.push("charity");
-    } else if (userPreference.cooking) {
+    } if (userPreference.cooking) {
       activityPreferences.push("cooking");
-    } else if (userPreference.relaxation) {
+    } if (userPreference.relaxation) {
       activityPreferences.push("relaxation");
-    } else if (userPreference.busywork) {
+    } if (userPreference.busywork) {
       activityPreferences.push("busywork");
-    } else if (userPreference.music) {
+    } if (userPreference.music) {
       activityPreferences.push("music");
     }
     
@@ -82,12 +82,12 @@ function checkboxHandler() {
           if (activity.link == "") {
             var newEl = document.createElement('p');
             $(displaySavedItemEl).empty();
-            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
+            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <i class="material-icons">person_outline</i> : ${activity.participants}`;
             displaySavedItemEl.appendChild(newEl);
           } else {
             var newEl = document.createElement('p');
             $(displaySavedItemEl).empty();
-            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+            newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=\" ${activity.link} \">${activity.link}</a><p><i class="material-icons">person_outline</i> ${activity.participants}`;
             displaySavedItemEl.appendChild(newEl);
           }
 
@@ -105,7 +105,7 @@ function fetchAndDisplayRandomActivity() {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          // console.log(data);
+          console.log(data);
           displayRandomActivity(data);
         });
       } else {
@@ -144,12 +144,12 @@ var displayRandomActivity = function (activity) {
   if (activity.link == "") {
     var newEl = document.createElement('p');
     $(displaySavedItemEl).empty();
-    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
+    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p><i class="material-icons">person_outline</i> ${activity.participants}`;
     displaySavedItemEl.appendChild(newEl);
   } else {
     var newEl = document.createElement('p');
     $(displaySavedItemEl).empty();
-    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+    newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=\" ${activity.link} \">${activity.link}</a><p><i class="material-icons">person_outline</i>  ${activity.participants}`;
     displaySavedItemEl.appendChild(newEl);
   }
 
