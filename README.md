@@ -8,7 +8,7 @@ Use this website to get unbored! Not sure what to do with your day off? Randomly
 ## Visuals
 
 
-![alt_text]()
+![alt_text](./assets/images/get-unbored-overview.gif)
 
 ## Usage 
 
@@ -20,7 +20,7 @@ If you're looking for a laugh, click the joke tab and Chuck Norris jokes will be
 
 To access all your hearted content, press the favorites tab and all your favorited content will appear. To look at more joke and activity content, press the home button. 
 
-If you're unsure whether you want a joke or activity press the "Click Here to Get Unbored" button to randomly generate either an activity or a joke for the best of both worlds.
+If you're unsure the type of content you would like see, click the "Click Here to Get Unbored" button and either an activity or a joke will randomly generate for the best of both worlds. Or, you can also specify the type (music, busywork, educational, recreational, etc) of activity you would like to see by filling out checkboxes provided and clicking that same button. 
 
 
 ## Links
@@ -41,7 +41,9 @@ If you're unsure whether you want a joke or activity press the "Click Here to Ge
 ## Author
 
 1. Keerti Chaudhary
+   
     Github: https://github.com/17keerti
 2. Mateo Navarro
+    
     LinkedIn: https://www.linkedin.com/in/mateonav
     GitHub: https://github.com/mateonav98
