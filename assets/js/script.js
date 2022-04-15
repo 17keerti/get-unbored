@@ -1,6 +1,9 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
+$(document).ready(function(){
+    $('.slider').slider();
+  });
 
 var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
@@ -40,9 +43,9 @@ function getUserPreferences() {
   //   // if a check box equals true then we want it show
 
   
-  // function getRandomInt(max) {
-  //   return Math.floor(Math.random() * max);
-  // }
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 
 function fetchAndDisplayRandomActivity() {
@@ -87,12 +90,17 @@ var displayRandomActivity = function (activity) {
   currentlyDisplayedItem.activityData = activity;
   currentlyDisplayedItem.timeData = time;
   // console.log(currentlyDisplayedItem);
-
+  if(activity.link == "" ){
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}<br><span id=\"clock\"> ${time}</span> `;
+  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
   displaySavedItemEl.appendChild(newEl);
-
+  } else {
+  var newEl = document.createElement('p');
+  $(displaySavedItemEl).empty();
+  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+  displaySavedItemEl.appendChild(newEl);
+}
 
 }
 
@@ -111,14 +119,19 @@ var displayRandomJoke = function (joke) {
 
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p>Joke: ${joke.value} <br><span id=\"clock\"> ${time}</span>`
+  newEl.innerHTML = `<p>Joke: ${joke.value}`
   displaySavedItemEl.appendChild(newEl);
 }
 
 function getContent() {
   displaySavedItemEl.classList.remove('hidden');
+  var index = getRandomInt(2);
+  console.log(index);
+  if(index == 1){
   fetchAndDisplayRandomActivity();
+  } else {
   fetchAndDisplayRandomJoke();
+  }
   getUserPreferences();
 }
 

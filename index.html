@@ -7,76 +7,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Get Unbored</title>
 </head>
 
-<body>
-        <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <h1 class="brand-logo center">Get Unbored with some fun activities and Jokes!</h1>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="saved_item.html">Favourites</a></li>
-                </ul>
-            </div>
-            <div class="nav-content">
-                <ul class="tabs tabs-transparent">
-                    <li id="jokeTab"class="tab"><a href="#displaySavedItem">Random Jokes</a></li>
-                    <li id="activityTab" class="tab"><a href="#displaySavedItem">Random Acitivity</a></li>
-                </ul>
-            </div>
-        </nav>
+<body class = "#e0f2f1 teal lighten-5">
+    <nav class="nav-extended #4db6ac teal lighten-2">
+        <div class="nav-wrapper">
+            <h1 class="brand-logo center">Get Unbored with some fun activities and Jokes!</h1>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="saved_item.html">Favourites</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <ul class="tabs tabs-transparent">
+            </ul>
+        </div>
+    </nav>
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="./assets/images/01.jpeg">
+                
+            </li>
+            <li>
+                <img src="./assets/images/03.webp">
+                
+            </li>
+            <li>
+                <img src="./assets/images/02.jpeg">
+                
+            </li>
+            <li>
+                <img src="./assets/images/04.jpeg">
+               
+            </li>
+        </ul>
+    </div>
+    <a id="jokeTab" class="waves-effect waves-light btn">Joke</a>
+    <a id="activityTab" class="waves-effect waves-light btn">Activity</a>
 
 
-            <div class="container teal lighten-4">
-                <form action="#">
-                    <h6>Please Select the Type of Activity:</h6>
-                    <p id="checkboxes">
-                        <label>
-                            <input type="checkbox" id ="educational" />
-                            <span>Educational</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="recreational"/>
-                            <span>Recreational</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="social" />
-                            <span>Social</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="diy"/>
-                            <span>DIY</span>
-                        </label>
-                    
-                    
-                        <label>
-                            <input type="checkbox" id="charity" />
-                            <span>Charity</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="cooking" />
-                            <span>Cooking</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="relaxation"/>
-                            <span>Relaxation</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="music"/>
-                            <span>Music</span>
-                        </label>
-                        <label>
-                            <input type="checkbox" id="busywork"/>
-                            <span>Busywork</span>
-                        </label>
-                    </p>
-                    <div class="card teal lighten-4">
+    <div class="container teal lighten-4">
+
+        <form action="#">
+            <h6>Please Select the Type of Activity:</h6>
+            <p id="checkboxes">
+                <label>
+                    <input type="checkbox" id="educational" />
+                    <span>Educational</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="recreational" />
+                    <span>Recreational</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="social" />
+                    <span>Social</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="diy" />
+                    <span>DIY</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="charity" />
+                    <span>Charity</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input type="checkbox" id="cooking" />
+                    <span>Cooking</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="relaxation" />
+                    <span>Relaxation</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="music" />
+                    <span>Music</span>
+                </label>
+                <label>
+                    <input type="checkbox" id="busywork" />
+                    <span>Busywork</span>
+                </label>
+
+            </p>
+            <!-- <div class="card teal lighten-4">
                         <span class="input-field participants">
                             <select>
                                 <option value="" disabled selected>Participants</option>
@@ -85,28 +105,25 @@
                                 <option value="3">3</option>
                             </select>
                         </span>
-                    </div>
-                </form>
+                    </div> -->
+        </form>
+    </div>
+    </div>
+    <div class="container teal lighten-4">
+        <div class="card teal lighten-4">
+            <div class="card-content">
+                <p id="displaySavedItem" class="hidden"></p>
+                <div id="heartOutline" class="material-icons">favorite_border</div>
+                <div id="heart" class="material-icons">favorite</div>
+            </div>
+            <div class="card-action center">
+                <a id="contentBtn" class="waves-effect waves-light btn">Click Here to Get Unbored</a>
             </div>
         </div>
-            <div class="container teal lighten-4">
-                <div class="card teal lighten-4">
-                    <div class="card-content">
-                        <span class="card-title">Your Joke/Activity:</span>
-                        <p id="displaySavedItem" class="hidden"></p>
-                        <div id="heartOutline" class="material-icons">favorite_border</div> 
-                        <div id="heart" class="material-icons">favorite</div>
-                    </div>
-                    <div class="card-action">
-                        <a id="contentBtn" class="waves-effect waves-light btn">Click Here to Get Unbored</a>
-                    </div>
-                </div>
-            </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            <script data-require="angularjs@1.5.8" data-semver="1.5.8"
-                src="https://unpkg.com/angular@1.5.8/angular.min.js"></script>
-            <script src="https://unpkg.com/material-components-web@0.1.1/dist/material-components-web.min.js"></script>
-            <script src="./assets/js/script.js"></script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
+
 </html>
