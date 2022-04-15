@@ -1,6 +1,9 @@
 $(document).ready(function () {
   $('select').formSelect();
 });
+$(document).ready(function(){
+    $('.slider').slider();
+  });
 
 var time = moment().format("DD/MM/YYYY hh :mm ");
 var displaySavedItemEl = document.querySelector("#displaySavedItem");
@@ -41,34 +44,10 @@ function getUserPreferences() {
 //     let url = "";
 //     var allActivityTypes =  ["education", "recreational", "social", "diy", "charity", "cooking", "relaxation", "music", "busywork"];
 
-//     function getActivity(userPreference){
-//         if(userPreference.education === true ){
-//             url = baseUrl  + 'education';
-//             random()
-//         }else if(userPreference.recreational + true){
-//             url = baseUrl + 'recreational'
-//             random
-//         }else if(userPreference.social === true){
-//             url = baseUrl + 'social';
-//             random
-//         }else if(userPreference.diy = true){
-//             url = baseUrl + 'diy';
-//             random
-//         }else if(userPreference.charity===true){
-//             url = baseUrl + 'charity'
-//         }else if(userPreference.cooking===true){
-//             url = baseUrl + 'cooking'
-//         }else if(userPreference.relaxation===true){
-//             url = baseUrl + 'relaxation'
-//         }else if(userPreference.busywork===true){
-//         url = baseUrl + 'busywork'
-//         }else if(userPreference.music===true){
-//             url = baseUrl + 'music'
-//         }
-//     }
-//     }
-//     return
-//   }
+  
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 // convert this allActivityTypes var to only contain values user has selected
 // put random value from allActivityTypes to selectedActivity
@@ -125,12 +104,17 @@ var displayRandomActivity = function (activity) {
   currentlyDisplayedItem.activityData = activity;
   currentlyDisplayedItem.timeData = time;
   // console.log(currentlyDisplayedItem);
-
+  if(activity.link == "" ){
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}<br><span id=\"clock\"> ${time}</span> `;
+  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> Participants: ${activity.participants}`;
   displaySavedItemEl.appendChild(newEl);
-
+  } else {
+  var newEl = document.createElement('p');
+  $(displaySavedItemEl).empty();
+  newEl.innerHTML = `<p> Activity: ${activity.activity}</p><p>Type: ${activity.type} <p> <p>Link: <a href=" ${activity.link} "></a>${activity.link}<p>Participants: ${activity.participants}`;
+  displaySavedItemEl.appendChild(newEl);
+}
 
 }
 
@@ -149,14 +133,19 @@ var displayRandomJoke = function (joke) {
 
   var newEl = document.createElement('p');
   $(displaySavedItemEl).empty();
-  newEl.innerHTML = `<p>Joke: ${joke.value} <br><span id=\"clock\"> ${time}</span>`
+  newEl.innerHTML = `<p>Joke: ${joke.value}`
   displaySavedItemEl.appendChild(newEl);
 }
 
 function getContent() {
   displaySavedItemEl.classList.remove('hidden');
+  var index = getRandomInt(2);
+  console.log(index);
+  if(index == 1){
   fetchAndDisplayRandomActivity();
+  } else {
   fetchAndDisplayRandomJoke();
+  }
   getUserPreferences();
 }
 

@@ -21,6 +21,8 @@
     display: none;
 }
 
-/* .participants{
-  margin-left: 800px;
-} */
+#jokeTab, #activityTab {
+  margin-left: 70px;
+}
+
+
