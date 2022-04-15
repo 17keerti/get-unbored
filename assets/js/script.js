@@ -72,7 +72,7 @@ function checkboxHandler() {
     
   var selectedActivityType = activityPreferences[getRandomInt(activityPreferences.length)];
   console.log(selectedActivityType);
-  var urlWithActivityType = "http://www.boredapi.com/api/activity?type=" + selectedActivityType;
+  var urlWithActivityType = "https://www.boredapi.com/api/activity?type=" + selectedActivityType;
 
   fetch(urlWithActivityType)
     .then(function (response) {
