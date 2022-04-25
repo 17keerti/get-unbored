@@ -93,7 +93,7 @@ function checkboxHandler() {
 
         });
       } else {
-        alert("Error: " + response.statusText);
+        console.log("Error: " + response.statusText);
       }
     });
   }
@@ -109,7 +109,7 @@ function fetchAndDisplayRandomActivity() {
           displayRandomActivity(data);
         });
       } else {
-        alert("Error: " + response.statusText);
+        console.log("Error: " + response.statusText);
       }
     });
 }
@@ -124,7 +124,7 @@ function fetchAndDisplayRandomJoke() {
           displayRandomJoke(data);
         });
       } else {
-        alert("Error: " + response.statusText);
+        console.log("Error: " + response.statusText);
       }
     });
 }
